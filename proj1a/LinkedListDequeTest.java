@@ -39,29 +39,40 @@ public class LinkedListDequeTest {
 
 		LinkedListDeque<String> lld1 = new LinkedListDeque<String>();
 
-		boolean passed = checkEmpty(true, lld1.isEmpty());
-
-		lld1.addFirst("front");
-		
-		// The && operator is the same as "and" in Python.
-		// It's a binary operator that returns true if both arguments true, and false otherwise.
-		passed = checkSize(1, lld1.size()) && passed;
-		passed = checkEmpty(false, lld1.isEmpty()) && passed;
-
-		lld1.addLast("middle");
-		passed = checkSize(2, lld1.size()) && passed;
-
-		lld1.addLast("back");
-		passed = checkSize(3, lld1.size()) && passed;
-
-		System.out.println("Printing out deque: ");
-		lld1.printDeque();
+//		boolean passed = checkEmpty(true, lld1.isEmpty());
+//
+//		lld1.addFirst("front");
+//
+//		// The && operator is the same as "and" in Python.
+//		// It's a binary operator that returns true if both arguments true, and false otherwise.
+//		passed = checkSize(1, lld1.size()) && passed;
+//		passed = checkEmpty(false, lld1.isEmpty()) && passed;
+//
+//		lld1.addLast("middle");
+//		passed = checkSize(2, lld1.size()) && passed;
+//
+//		lld1.addLast("back");
+//		passed = checkSize(3, lld1.size()) && passed;
+//
+//		System.out.println("Printing out deque: ");
+//		lld1.printDeque();
 //		System.out.println(lld1.get(1));
-		LinkedListDeque<String> lld3 = new LinkedListDeque<>(lld1);
-		lld3.printDeque();
+//		LinkedListDeque<String> lld3 = new LinkedListDeque<>(lld1);
+//		lld3.printDeque();
 
-		printTestStatus(passed);
-
+//		printTestStatus(passed);
+		LinkedListDeque<Integer> lld2 = new LinkedListDeque();
+		lld2.addFirst(0);
+		int a = lld2.removeLast();
+		lld2.size();
+		lld2.size();
+		lld2.size();
+		boolean t = lld2.isEmpty();
+		lld2.addFirst(6);
+		int b = lld2.removeFirst();
+		lld2.size();
+		lld2.addFirst(9);
+		int c = lld2.removeLast();
 	}
 
 	/** Adds an item, then removes an item, and ensures that dll is empty afterwards. */

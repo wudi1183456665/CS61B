@@ -1,6 +1,6 @@
 public class LinkedListDeque <T>{
 
-    public class TNode{
+    private class TNode{
         public TNode pre;
         public T item;
         public TNode next;
@@ -25,17 +25,17 @@ public class LinkedListDeque <T>{
     }
 
     /** Return a copy of other. */
-    public LinkedListDeque(LinkedListDeque other){
-        sentinel = new TNode(null,null ,null);
-        sentinel.pre = sentinel;
-        sentinel.next = sentinel;
-        size = 0;
-        TNode p = other.sentinel.next;
-        while(p != other.sentinel){
-            this.addLast(p.item);
-            p = p.next;
-        }
-    }
+//    public LinkedListDeque(LinkedListDeque other){
+//        sentinel = new TNode(null,null ,null);
+//        sentinel.pre = sentinel;
+//        sentinel.next = sentinel;
+//        size = 0;
+//        TNode p = other.sentinel.next;
+//        while(p != other.sentinel){
+//            this.addLast(p.item);
+//            p = p.next;
+//        }
+//    }
 
     public void addFirst(T item){
         TNode node = new TNode(sentinel, item, sentinel.next);
@@ -95,7 +95,7 @@ public class LinkedListDeque <T>{
             return null;
         }
         T lastItem = sentinel.pre.item;
-        sentinel.pre.next = sentinel;
+        sentinel.pre.pre.next = sentinel;
         sentinel.pre = sentinel.pre.pre;
         size -= 1;
         return lastItem;
@@ -114,14 +114,14 @@ public class LinkedListDeque <T>{
         T ithItem = p.item;
         return ithItem;
     }
-    public T getRecursive(int index, TNode node){
+    private T getRecursive(int index, TNode node){
         if(index == 0){
             return node.item;
         }
         return getRecursive(index-1,node.next);
     }
 
-    public T getRecursive(int index){
+    private T getRecursive(int index) {
         return getRecursive(index,sentinel.next);
     }
 }

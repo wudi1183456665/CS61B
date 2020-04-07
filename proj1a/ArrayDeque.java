@@ -15,13 +15,13 @@ public class ArrayDeque <T> {
         size = 0;
     }
 
-    public ArrayDeque (ArrayDeque other) {
-        items = (T[]) new Object[other.items.length];
-        nextFirst = other.nextFirst;
-        nextLast = other.nextLast;
-        size = other.size;
-        System.arraycopy(other.items,0,items,0,other.items.length);
-    }
+//    public ArrayDeque (ArrayDeque other) {
+//        items = (T[]) new Object[other.items.length];
+//        nextFirst = other.nextFirst;
+//        nextLast = other.nextLast;
+//        size = other.size;
+//        System.arraycopy(other.items,0,items,0,other.items.length);
+//    }
 
     private void resize(int capacity) {
         T[] newItems = (T[]) new Object[capacity];
@@ -90,11 +90,14 @@ public class ArrayDeque <T> {
     }
 
     public T removeFirst(){
+        if (size == 0) {
+            return null;
+        }
         T firstValue = items[nextFirst + 1];
         items[nextFirst + 1] = null;
         nextFirst = (nextFirst + 1) % items.length;
         size -= 1;
-        if ((double) size / items.length < RFACTOR){
+        if ((double) size / items.length < RFACTOR && items.length > 16){
             downSize((int) (items.length * RFACTOR));
         }
         return firstValue;
@@ -102,11 +105,14 @@ public class ArrayDeque <T> {
     }
 
     public T removeLast() {
-        T lastValue = items[nextLast - 1];
-        if ((double)size/items.length < RFACTOR){
+        if (size == 0) {
+            return null;
+        }
+        T lastValue = items[(nextLast + items.length - 1) % items.length];
+        if ((double)size/items.length < RFACTOR && items.length > 16){
             downSize(size * (int) (1 / RFACTOR));
         }
-        items[nextLast - 1] =null;
+        items[(nextLast + items.length - 1) % items.length] = null;
         nextLast = (items.length + nextLast - 1) % items.length;
         size -= 1;
         return lastValue;
