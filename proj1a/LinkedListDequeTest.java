@@ -38,28 +38,6 @@ public class LinkedListDequeTest {
 
 		LinkedListDeque<String> lld1 = new LinkedListDeque<String>();
 
-//		boolean passed = checkEmpty(true, lld1.isEmpty());
-//
-//		lld1.addFirst("front");
-//
-//		// The && operator is the same as "and" in Python.
-//		// It's a binary operator that returns true if both arguments true, and false otherwise.
-//		passed = checkSize(1, lld1.size()) && passed;
-//		passed = checkEmpty(false, lld1.isEmpty()) && passed;
-//
-//		lld1.addLast("middle");
-//		passed = checkSize(2, lld1.size()) && passed;
-//
-//		lld1.addLast("back");
-//		passed = checkSize(3, lld1.size()) && passed;
-//
-//		System.out.println("Printing out deque: ");
-//		lld1.printDeque();
-//		System.out.println(lld1.get(1));
-//		LinkedListDeque<String> lld3 = new LinkedListDeque<>(lld1);
-//		lld3.printDeque();
-
-//		printTestStatus(passed);
 		LinkedListDeque<Integer> lld2 = new LinkedListDeque();
 		lld2.addFirst(0);
 		int a = lld2.removeLast();
@@ -78,8 +56,6 @@ public class LinkedListDequeTest {
 	public static void addRemoveTest() {
 
 		System.out.println("Running add/remove test.");
-
-//		System.out.println("Make sure to uncomment the lines below (and delete this print statement).");
 
 		LinkedListDeque<Integer> lld1 = new LinkedListDeque<Integer>();
 		// should be empty 
