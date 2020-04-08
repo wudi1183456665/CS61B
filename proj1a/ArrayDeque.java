@@ -44,7 +44,7 @@ public class ArrayDeque<T> {
 
     public void addLast(T item) {
         if (nextLast == nextFirst) {
-            resize(items.length * (int)(1 / RFACTOR));
+            resize(items.length * (int) (1 / RFACTOR));
         }
         items[nextLast] = item;
         size += 1;
@@ -108,7 +108,7 @@ public class ArrayDeque<T> {
             return null;
         }
         T lastValue = items[(nextLast + items.length - 1) % items.length];
-        if ((double)size / items.length < RFACTOR && items.length > 16) {
+        if ((double) size / items.length < RFACTOR && items.length > 16) {
             downSize(size * (int) (1 / RFACTOR));
         }
         items[(nextLast + items.length - 1) % items.length] = null;
